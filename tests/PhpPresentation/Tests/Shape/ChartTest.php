@@ -68,22 +68,21 @@ class ChartTest extends TestCase
     {
         $object = new Chart();
         $this->assertNull($object->getDisplayBlankAs());
-        $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Shape\\Chart', $object->setDisplayBlankAs(Chart::BLANKS_GAP));
+        $this->assertEquals(Chart::BLANKS_GAP, $object->setDisplayBlankAs(Chart::BLANKS_GAP));
         $this->assertEquals(Chart::BLANKS_GAP, $object->getDisplayBlankAs());
-        $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Shape\\Chart', $object->setDisplayBlankAs(Chart::BLANKS_SPAN));
+        $this->assertEquals(Chart::BLANKS_SPAN, $object->setDisplayBlankAs(Chart::BLANKS_SPAN));
         $this->assertEquals(Chart::BLANKS_SPAN, $object->getDisplayBlankAs());
-        $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Shape\\Chart', $object->setDisplayBlankAs(Chart::BLANKS_ZERO));
+        $this->assertEquals(Chart::BLANKS_ZERO, $object->setDisplayBlankAs(Chart::BLANKS_ZERO));
         $this->assertEquals(Chart::BLANKS_ZERO, $object->getDisplayBlankAs());
     }
 
     /**
      * @expectedException \Exception
-     * @expectedExceptionMessage Unknkown value :
+     * @expectedExceptionMessage Unknown value: no-such-value
      */
     public function testDisplayBlankAsException()
     {
         $object = new Chart();
         $object->setDisplayBlankAs('no-such-value');
     }
-
 }

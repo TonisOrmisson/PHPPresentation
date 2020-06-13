@@ -181,8 +181,8 @@ class Chart extends AbstractGraphic implements ComparableInterface
     public function setDisplayBlankAs($value)
     {
         $allowedValues = array(self::BLANKS_GAP, self::BLANKS_SPAN, self::BLANKS_ZERO);
-        if(!in_array($value, $allowedValues)) {
-            throw new \Exception("Unknown value");
+        if (!in_array($value, $allowedValues)) {
+            throw new \Exception("Unknown value: " . $value);
         }
         $this->displayBlankAs = $value;
         return $this->displayBlankAs;
